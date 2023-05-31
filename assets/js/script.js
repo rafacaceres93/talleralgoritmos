@@ -1,15 +1,26 @@
 
-function tipoTriangulo() {
-    const lado1 = parseFloat(prompt("Ingrese el primer lado del triangulo: "));
-    const lado2 = parseFloat(prompt("Ingrese el segundo lado del triangulo: "));
-    const lado3 = parseFloat(prompt("Ingrese el tercer lado del triangulo: "));
 
-    if (lado1 === lado2 && lado2 === lado3) {
-        console.log("Es un triangulo equilatero ");
-    } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
-        console.log("Es un triangulo isosceles ");
-    } else {
-        console.log("Es un triangulo escaleno ");
+function numerosAmigos() {
+    let numero1 = parseInt(prompt("Ingrese el primer numero:"));
+    let numero2 = parseInt(prompt("Ingrese el segundo numero:"));
+
+    function obtenerSumaDivisores(numero) {
+        let suma = 0;
+        for (let i = 1; i <= numero / 2; i++) {
+            if (numero % i === 0) {
+                suma += i;
+            }
+        }
+        return suma;
     }
-    ejercicio3Contador++;
+
+    const sumaDivisores1 = obtenerSumaDivisores(numero1);
+    const sumaDivisores2 = obtenerSumaDivisores(numero2);
+
+    if (sumaDivisores1 === numero2 && sumaDivisores2 === numero1) {
+        console.log("Los numeros " + numero1 + " y " + numero2 + " son amigos");
+    } else {
+        console.log("Los numeros " + numero1 + " y " + numero2 + " no son amigos");
+    }
+    ejercicio4Contador++;
 }
